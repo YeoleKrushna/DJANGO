@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <style>
+        /* Overall container for the book list */
+        .book-item {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 15px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .book-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .book-title {
+            font-size: 1.8em;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .book-title:hover {
+            color: #e44d26;
+        }
+
+        .book-genre,
+        .book-desc,
+        .book-price {
+            font-size: 1em;
+            color: #555;
+            margin: 8px 0;
+            transition: color 0.3s ease;
+        }
+
+        .book-genre:hover,
+        .book-desc:hover,
+        .book-price:hover {
+            color: #333;
+        }
+
+        .book-price span {
+            font-weight: bold;
+            color: #e44d26;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #e44d26;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #c43d1f;
+            transform: scale(1.1);
+        }
+
+        /* Animation for text fade-in */
+        .book-item {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header styles */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        /* Body content container */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        /* Form styling */
+        .form-h1 {
+            font-size: 2em;
+            color: #333;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .form {
+            background-color: #f1f1f1;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.62);
+            width: 350px;
+            margin: 40px auto;
+            text-align: center;
+            align-items:center;
+        }
+
+        .form p {
+            margin: 10px 0;
+            text-align:center;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #e44d26;
+            outline: none;
+        }
+
+        button[type="submit"] {
+            background-color: #e44d26;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #c43d1f;
+            transform: scale(1.05);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .book-item {
+                width: 250px;
+            }
+
+            .form {
+                width: 90%;
+            }
+        }
+        /* Container for Update Books */
+.container-update {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+/* Book information box */
+.update-book-item {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+/* Title for Update Section */
+.form-h1 {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Book Information Box */
+.book-info-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Styling for each book detail */
+.book-info-box h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.book-info-box p {
+    font-size: 1.1em;
+    color: #555;
+    margin: 5px 0;
+}
+
+.book-info-box p strong {
+    font-weight: bold;
+    color: #333;
+}
+.upd_btn{
+    background-color: #c43d1f;
+    transform: scale(1.05);
+    margin:20px
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>BOOKS</h1>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        {% for book in books %}
+            <div class="book-item">
+                {% if book.image %}
+                    <img src="{{ book.image.url }}" alt="{{ book.name }}" width="65.7" height="100">
+                {% endif %}
+                <h1 class="book-title">{{ book.name }}</h1>
+                <p class="book-genre">Genre: {{ book.genre }}</p>
+                <p class="book-desc">Description: {{ book.desc }}</p>
+                <p class="book-price">Price: <span>₹{{ book.prize }}</span></p>
+                
+                <!-- Update Button -->
+                <form action="{% url 'update_data' book.id %}" method="GET">
+                    {% csrf_token %}
+                     <button class="upd_btn" type="submit">Update Book</button>
+                </form>
+                 <!-- Delete Button -->
+                 <form action="{% url 'deletedata' book.id %}" method="POST">
+                     {% csrf_token %}
+                     <input type="hidden" name="_method" value="DELETE">
+                      <button class="del_btn" type="submit">Delete Book</button>
+                 </form>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div>
+    <!-- Form to Add Books -->
+    <div class="form-container">
+        <h1 class="form-h1">Add New Book</h1>
+        <form class="form" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- Show form fields as paragraphs -->
+            {{ form.as_p }}
+            <button class="btn" type="submit">Add Book</button>
+        </form>
+    </div>
+    
+</div>
+
+
+    
+
+
+
+
+</body>
+</html>
